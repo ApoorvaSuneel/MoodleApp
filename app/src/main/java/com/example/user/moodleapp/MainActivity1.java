@@ -1,3 +1,4 @@
+//testing git synch
 package com.example.user.moodleapp;
 
 import android.support.v7.app.AppCompatActivity;
