@@ -27,7 +27,7 @@ Button b2;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_choice);
         b2=(Button)findViewById(R.id.button2);
-        username=(EditText)findViewById(R.id.editText);
+        username=(EditText)findViewById(R.id.editText3);
         password=(EditText)findViewById(R.id.editText2);
 
         b2.setOnClickListener(new View.OnClickListener()
