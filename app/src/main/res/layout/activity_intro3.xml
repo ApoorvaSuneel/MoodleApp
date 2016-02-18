@@ -11,24 +11,23 @@
     tools:context="com.example.user.moodleapp.intro3">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:src="@drawable/faculty"
+        android:id="@+id/imageView2"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6"
-        android:layout_marginTop="48dp"
-        android:id="@+id/imageView2" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="34dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Faculty can monitor the performances                               and make announcements"
         android:id="@+id/textView6"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="42dp"
         android:layout_below="@+id/imageView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="54dp"
-        android:layout_marginStart="54dp" />
+        android:layout_alignLeft="@+id/imageView2"
+        android:layout_alignStart="@+id/imageView2"
+        android:layout_marginLeft="46dp"
+        android:layout_marginStart="46dp" />
 </RelativeLayout>
