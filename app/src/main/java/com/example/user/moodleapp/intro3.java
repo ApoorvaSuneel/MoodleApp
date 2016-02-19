@@ -14,7 +14,7 @@ public class intro3 extends AppCompatActivity {
             @Override
             public void run() {
                 try {
-                    sleep(6000);
+                    sleep(2000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
