@@ -18,7 +18,7 @@ import com.android.volley.toolbox.Volley;
 public class LoginChoice extends AppCompatActivity {
 Button b2;
     public static String user,pass;
-    private static String REGISTER_URL ="http://10.192.40.165:8000/default/login.json?userid="+user+"&password="+pass;
+    private static String REGISTER_URL ="http://10.192.38.174:8000/default/login.json?userid="+user+"&password="+pass;
     EditText username,password;
     //public static String usernamestr,passwordstr;
 
