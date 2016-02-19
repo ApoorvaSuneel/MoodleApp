@@ -1,5 +1,5 @@
 //testing git synch
-//testing branch again, lets check master
+//testing branch again
 package com.example.user.moodleapp;
 
 import android.content.Intent;
