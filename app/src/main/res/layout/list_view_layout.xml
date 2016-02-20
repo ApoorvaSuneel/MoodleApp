@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:text="code"
         android:id="@+id/code" />
-    <TextView
+  <!--  <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="name"
@@ -31,6 +31,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ltp"
-        android:id="@+id/ltp" />
+        android:id="@+id/ltp" />-->
 
 </LinearLayout>
