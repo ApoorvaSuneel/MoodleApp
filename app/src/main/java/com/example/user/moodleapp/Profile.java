@@ -34,7 +34,15 @@ public class Profile extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        b4.setOnClickListener(new View.OnClickListener()
+        {
 
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        Profile.this,Notifications.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
 }

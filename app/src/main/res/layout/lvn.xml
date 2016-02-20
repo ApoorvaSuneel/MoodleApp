@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:layout_width="match_parent"
+        android:textSize="20dp"
+        android:clickable="true"
+        android:layout_height="70dp"
+        android:gravity="left"
+        android:layout_gravity="center"
+        android:background="@color/white"
+        android:text="code"
+        android:id="@+id/coden" />
+    <!--  <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="name"
+          android:id="@+id/name" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="description"
+          android:id="@+id/description" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="credits"
+          android:id="@+id/credit" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="identity"
+          android:id="@+id/identity" />
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="ltp"
+          android:id="@+id/ltp" />-->
+
+</LinearLayout>
