@@ -57,7 +57,7 @@ public class Courses extends AppCompatActivity {
 
             }
         });
-        JSON_URL="http://10.192.40.165:8000/courses/list.json";
+        JSON_URL= LoginChoice.ip + "courses/list.json";
         sendRequest();
 
     }
