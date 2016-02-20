@@ -37,6 +37,7 @@ import java.util.List;
 public class Courses extends AppCompatActivity {
     ImageButton im;
     private static ArrayList<String> mycourses=new ArrayList<>();
+    private static ArrayList<String> id=new ArrayList<String>();
     private String jsonResponse;
     private ListView l;
     private static String JSON_URL ;
@@ -76,8 +77,8 @@ public class Courses extends AppCompatActivity {
                     for (int i = 0; i < clist.length(); i++) {
 
                         JSONObject coursee = (JSONObject) clist.get(i);
-
-                        String name = coursee.getString("code")+"  "+coursee.getString("name");
+                        id.add(coursee.getString("id"));
+                        String name = coursee.getString("id")+"  "+coursee.getString("name");
                         jsonResponse=name+jsonResponse;
                         mycourses.add(name);
 
