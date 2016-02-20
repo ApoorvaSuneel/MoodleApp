@@ -1,8 +1,11 @@
 package com.example.user.moodleapp;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -19,7 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import java.net.CookieHandler;
 
 public class Assignments extends AppCompatActivity {
-
+    ImageButton im;
     private ListView l;
     private static String JSON_URL ;
     /**
@@ -32,6 +35,17 @@ public class Assignments extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_courses);
+        im=(ImageButton)findViewById(R.id.imageView);
+        im.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        Assignments.this, Profile.class);
+                startActivity(myIntent);
+
+            }
+        });
+
         sendRequest();
         l = (ListView) findViewById(R.id.lv);
         JSON_URL="http://10.192.40.165:8000/courses/course.json/cop290/assignments";

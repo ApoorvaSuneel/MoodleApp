@@ -21,9 +21,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity1" />
-        <activity android:name=".intro2" />
-        <activity android:name=".intro3" />
         <activity android:name=".LoginChoice" />
         <activity android:name=".Profile" />
         <activity android:name=".Assignments" />
