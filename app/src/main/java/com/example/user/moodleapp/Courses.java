@@ -36,6 +36,7 @@ import java.util.List;
 
 public class Courses extends AppCompatActivity {
     ImageButton im;
+    public static int udone=0;
     private static ArrayList<String> mycourses=new ArrayList<>();
     private static ArrayList<String> id=new ArrayList<String>();
     private String jsonResponse;
@@ -59,7 +60,6 @@ public class Courses extends AppCompatActivity {
         });
         JSON_URL= LoginChoice.ip + "courses/list.json";
         sendRequest();
-
     }
 
     private void sendRequest() {
@@ -80,7 +80,9 @@ public class Courses extends AppCompatActivity {
                         id.add(coursee.getString("id"));
                         String name = coursee.getString("id")+"  "+coursee.getString("name");
                         jsonResponse=name+jsonResponse;
-                        mycourses.add(name);
+                        if(udone==0){
+                            mycourses.add(name);
+                        }
 
 
                     }
@@ -93,7 +95,9 @@ public class Courses extends AppCompatActivity {
 
                    /* CustomList cl = new CustomList(Courses.this,array1);//, pj.descriptions,pj.credits,pj.ids,pj.ltps);
                     l.setAdapter(cl);*/
-
+                    if (clist.length()>0){
+                        udone=1;
+                    }
                 }
                 catch (JSONException e) {
                     e.printStackTrace();

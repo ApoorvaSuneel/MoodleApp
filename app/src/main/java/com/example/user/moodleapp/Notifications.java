@@ -25,6 +25,8 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 
 import java.lang.reflect.Method;
 import java.net.CookieHandler;
@@ -34,7 +36,7 @@ import java.util.List;
 
 
 public class Notifications extends AppCompatActivity {
-
+    private static int udone=0;
     ImageButton im;
     private static ArrayList<String> mynotes=new ArrayList<>();//stores note text
     private static ArrayList<String> id=new ArrayList<String>();//stores time stamps
@@ -79,8 +81,10 @@ public class Notifications extends AppCompatActivity {
                         JSONObject note = (JSONObject) clist.get(i);
                         id.add(note.getString("created_at"));
                         String text=note.getString("description");
-                        text.replaceAll("</?a>","");
-                        mynotes.add(text);
+                        text= Jsoup.clean(text, Whitelist.simpleText());
+                        if(udone==0){
+                            mynotes.add(text);
+                        }
                         String name = note.getString("created_at")+"  ID "+note.getString("id");
                         jsonResponse=name+jsonResponse;
 
@@ -91,6 +95,9 @@ public class Notifications extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Notifications.this,R.layout.lvn,R.id.coden,array1);
                     l.setAdapter(t);
+                    if (clist.length()>0){
+                        udone=1;
+                    }
 
                    /* CustomList cl = new CustomList(Courses.this,array1);//, pj.descriptions,pj.credits,pj.ids,pj.ltps);
                     l.setAdapter(cl);*/
