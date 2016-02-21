@@ -68,12 +68,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/entry" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="assignments"
-                    android:id="@+id/assign"
-                    />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,14 +78,27 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Viee Threads"
-                    android:id="@+id/thread"
+                    android:text="Grades"
+                    android:id="@+id/grades"
                     />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" View Notifications"
                     android:id="@+id/notify"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View my files"
+                    android:id="@+id/files"
+                    />
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calender/Reminder"
+                    android:id="@+id/calen"
                     />
             </LinearLayout>
 
