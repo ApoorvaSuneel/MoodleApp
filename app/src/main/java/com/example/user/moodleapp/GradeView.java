@@ -24,8 +24,12 @@ import java.util.ArrayList;
 
 public class GradeView extends AppCompatActivity {
     ImageButton im;
-
+    public static int udone=0;
+    public static  ArrayList<String> gradata=new ArrayList<String>();
+    private String jsonResponse;
+    public static String[] arraygrade;
     private ListView l;
+    private static String JSON_URL ;
 
 
     @Override
@@ -44,15 +48,70 @@ public class GradeView extends AppCompatActivity {
             }
         });
         //TextView txtProduct = (TextView) findViewById(R.id.product_label);
-
-        Intent i = getIntent();
-        // getting attached intent data
-        String[] product = i.getStringArrayExtra("id");
-        // displaying selected product name
-        ArrayAdapter<String> t =new ArrayAdapter<String>(GradeView.this,R.layout.list_view_layout,R.id.code,product);
-        l.setAdapter(t);
+        JSON_URL= LoginChoice.ip + "/default/grades.json";
+        sendRequest();
 
 
+
+
+    }
+
+    private void sendRequest() {
+        JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
+                JSON_URL, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
+
+
+                try {
+                    // Parsing json object response
+                    JSONArray clist = response.getJSONArray("courses");
+                    JSONArray glist =response.getJSONArray("grades");
+                    String name="";
+                    for (int i = 0; i < clist.length(); i++) {
+
+                        JSONObject coursee = (JSONObject) clist.get(i);
+                        JSONObject grades =(JSONObject) glist.get(i);
+                        if(udone==0){
+                                gradata.add("COURSE   :" + "  " + coursee.getString("name"));
+                                gradata.add("CREDITS   :" + "  " + coursee.getString("credits"));
+                                gradata.add("L-T-P   :"+  "  "+coursee.getString("l_t_p"));
+                                gradata.add("NAME   :"+"  "+grades.getString("name"));
+                                gradata.add("YOUR SCORE   :"+"  "+grades.getString("score"));
+                                gradata.add("TOTAL   :"+"  "+grades.getString("out_of"));
+                                gradata.add("WEIGHTAGE   :"+"  "+grades.getString("weightage"));
+
+                            }
+
+                    }
+                    arraygrade=gradata.toArray(new String[gradata.size()]);
+                    Toast.makeText(GradeView.this,
+                            jsonResponse,
+                            Toast.LENGTH_SHORT).show();
+                    ArrayAdapter<String> t =new ArrayAdapter<String>(GradeView.this,R.layout.list_view_layout,R.id.code,arraygrade);
+                    l.setAdapter(t);
+
+
+                    if (clist.length()>0){
+                        udone=1;
+                    }
+                }
+                catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),
+                            "Error: NOT WORKING " + e.getMessage(),
+                            Toast.LENGTH_LONG).show();
+                }}
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        RequestQueue RequestP = Volley.newRequestQueue(this);
+        RequestP.add(jreq);
 
 
     }
