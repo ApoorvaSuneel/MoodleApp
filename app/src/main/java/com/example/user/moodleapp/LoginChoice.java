@@ -21,11 +21,10 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LoginChoice extends AppCompatActivity {
     Button b2;
-<<<<<<< HEAD
+
 public static String ip="http://10.208.23.100:8000/";
-=======
-public static String ip="http://10.192.38.174:8000/";
->>>>>>> 2097f0d3cd9a5f216d9c1f2a499858ada98d8345
+
+
 
     //public static String user,pass;
     private static String REGISTER_URL;
@@ -45,7 +44,7 @@ public static String ip="http://10.192.38.174:8000/";
         setContentView(R.layout.activity_login_choice);
         b2 = (Button) findViewById(R.id.button2);
         username = (EditText) findViewById(R.id.editText3);
-        password = (EditText) findViewById(R.id.editText2);
+        password = (EditText) findViewById(R.id.editText);
 
         b2.setOnClickListener(new View.OnClickListener() {
 
