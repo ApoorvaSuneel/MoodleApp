@@ -30,9 +30,20 @@ public class CourseP extends AppCompatActivity {
         });
         //bind the text view
         codec=(TextView)findViewById(R.id.textView2);
-        codec.setText(Courses.Csel);
+        String ccode =Courses.Csel;
+        codec.setText(ccode);
         //bind the content buttons
         asnb = (Button) findViewById(R.id.button);
+        asnb.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        CourseP.this, Assignmentc.class);
+                startActivity(myIntent);
+            }
+        });
+
+
+
         threadb=(Button) findViewById(R.id.button4);
         threadb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -41,7 +52,16 @@ public class CourseP extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+
         gradeb=(Button) findViewById(R.id.button3);
+        gradeb.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        CourseP.this, Gradec.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
 }

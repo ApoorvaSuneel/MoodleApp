@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.user.moodleapp.Threadc">
+    tools:context="com.example.user.moodleapp.Gradec">
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -58,7 +58,7 @@
                 <ListView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/lvt"></ListView>
+                    android:id="@+id/lvgc"></ListView>
             </LinearLayout>
 
 

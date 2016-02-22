@@ -94,11 +94,12 @@
                     android:text="View my files"
                     android:id="@+id/files"
                     />
+
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Calender/Reminder"
-                    android:id="@+id/calen"
+                    android:text="LOGOUT"
+                    android:id="@+id/logout"
                     />
             </LinearLayout>
 

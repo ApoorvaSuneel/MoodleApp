@@ -22,40 +22,38 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Threadc extends AppCompatActivity {
+public class Assignmentc extends AppCompatActivity {
     ImageButton im;
     public static int udone=0;
-    public static ArrayList<String> threaddata1=new ArrayList<String>();
+    public static ArrayList<String> assgndata=new ArrayList<String>();
     private String jsonResponse;
-    public static String[] arraythread;
+    public static String[] arrayassgn;
     private ListView l;
     private static String JSON_URL ;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_threadc);
-        Toast.makeText(Threadc.this, Courses.Csel, Toast.LENGTH_SHORT).show();
+        setContentView(R.layout.activity_assignmentc);
+        Toast.makeText(Assignmentc.this, Courses.Csel, Toast.LENGTH_SHORT).show();
 
         im=(ImageButton)findViewById(R.id.imageView);
-        l=(ListView)findViewById(R.id.lvt);
+        l=(ListView)findViewById(R.id.lvac);
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 Intent myIntent = new Intent(
-                        Threadc.this, Profile.class);
+                        Assignmentc.this, Profile.class);
                 startActivity(myIntent);
 
             }
         });
 
-        JSON_URL= LoginChoice.ip + "courses/course.json/cop290/threads";
+        JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/assignments";
         sendRequest();
     }
 
     private void sendRequest() {
-
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
 
@@ -65,23 +63,24 @@ public class Threadc extends AppCompatActivity {
 
                 try {
 
-                    JSONArray glist =response.getJSONArray("course_threads");
+                    JSONArray glist =response.getJSONArray("assignments");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
                         JSONObject grades =(JSONObject) glist.get(i);
-                        name = grades.getString("id")+"  "+grades.getString("title");
+                        name = "  "+grades.getString("name");
                         jsonResponse=name+jsonResponse;
-                       // threaddata1.add("NAME   :"+"  "+grades.getString("name"));
-                       // threaddata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                        threaddata1.add("TITLE   :" + "  " + grades.getString("id"));
-                       // threaddata1.add("ID   :" + "  " + grades.getString("title"));
+
+                        assgndata.add("NAME   :" + "  " + grades.getString("name"));
+                       // assgndata.add("CREATED AT   :" + "  " + grades.getString("created_at"));
+                        //assgndata.add("DEADLINE   :" + "  " + grades.getString("deadline"));
+                        //assgndata.add("   :" + "  " + grades.getString("weightage"));
 
                     }
-                    Toast.makeText(Threadc.this,
+                    Toast.makeText(Assignmentc.this,
                             jsonResponse,
                             Toast.LENGTH_LONG).show();
-                    arraythread=threaddata1.toArray(new String[threaddata1.size()]);
-                    ArrayAdapter<String> t =new ArrayAdapter<String>(Threadc.this,R.layout.list_view_layout,R.id.code,arraythread);
+                    arrayassgn=assgndata.toArray(new String[assgndata.size()]);
+                    ArrayAdapter<String> t =new ArrayAdapter<String>(Assignmentc.this,R.layout.list_view_layout,R.id.code,arrayassgn);
                     l.setAdapter(t);
                 }
                 catch (JSONException e) {
@@ -100,8 +99,6 @@ public class Threadc extends AppCompatActivity {
         });
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
-
-
 
     }
 }

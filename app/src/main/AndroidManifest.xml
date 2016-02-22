@@ -28,7 +28,6 @@
         </activity>
         <activity android:name=".LoginChoice" />
         <activity android:name=".Profile" />
-        <activity android:name=".Assignments" />
         <activity android:name=".Courses" />
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -42,7 +41,9 @@
         <activity android:name=".Grades" />
         <activity android:name=".GradeView" />
         <activity android:name=".Threadc" />
-        <activity android:name=".CourseP"></activity>
+        <activity android:name=".CourseP" />
+        <activity android:name=".Gradec" />
+        <activity android:name=".Assignmentc"></activity>
     </application>
 
 </manifest>
