@@ -121,9 +121,10 @@ public class Courses extends AppCompatActivity {
     }
 
 
+    public void clickcourse(View view) {
+        Toast.makeText(getApplicationContext(),
+                "Error: WORKING courses ",
+                Toast.LENGTH_SHORT).show();
+    }
+    }
 
-
-
-
-
-}

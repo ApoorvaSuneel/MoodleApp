@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Profile extends AppCompatActivity {
     Button b1,b2,b3,b4;
@@ -15,6 +16,7 @@ public class Profile extends AppCompatActivity {
         b1=(Button)findViewById(R.id.grades);
         b2=(Button)findViewById(R.id.course);
         b4=(Button)findViewById(R.id.notify);
+        b3=(Button)findViewById(R.id.files);
         b1.setOnClickListener(new View.OnClickListener()
         {
 
@@ -41,6 +43,16 @@ public class Profile extends AppCompatActivity {
                         Profile.this,Notifications.class);
                 startActivity(myIntent);
             }
+        });
+        b3.setOnClickListener(new View.OnClickListener()
+        {
+           public void onClick(View v)
+           {
+               Toast.makeText(getApplicationContext(),
+                       "Error: WORKING files ",
+                       Toast.LENGTH_SHORT).show();
+           }
+
         });
     }
 

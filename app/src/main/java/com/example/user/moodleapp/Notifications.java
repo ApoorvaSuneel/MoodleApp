@@ -93,7 +93,7 @@ public class Notifications extends AppCompatActivity {
                     Toast.makeText(Notifications.this,
                             jsonResponse,
                             Toast.LENGTH_LONG).show();
-                    ArrayAdapter<String> t =new ArrayAdapter<String>(Notifications.this,R.layout.lvn,R.id.coden,array1);
+                    ArrayAdapter<String> t =new ArrayAdapter<String>(Notifications.this,R.layout.list_view_layout,R.id.code,array1);
                     l.setAdapter(t);
                     if (clist.length()>0){
                         udone=1;
@@ -122,4 +122,10 @@ public class Notifications extends AppCompatActivity {
         RequestP.add(jreq);
 
 
-    }}
+    }
+    public void clickcourse(View view) {
+        Toast.makeText(getApplicationContext(),
+                "Error: WORKING notifications ",
+                Toast.LENGTH_SHORT).show();
+    }
+}

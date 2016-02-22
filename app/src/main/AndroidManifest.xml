@@ -15,7 +15,7 @@
     <application
         android:name=".MyApp2"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/student2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -39,7 +39,8 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name=".Notifications" />
-        <activity android:name=".Grades"></activity>
+        <activity android:name=".Grades" />
+        <activity android:name=".GradeView"></activity>
     </application>
 
 </manifest>
