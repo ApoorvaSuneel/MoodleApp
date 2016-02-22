@@ -20,7 +20,10 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LoginChoice extends AppCompatActivity {
-    Button b2;public static String ip="http://10.192.38.174:8000/";
+
+    Button b2;
+    public static String ip="http://10.192.38.174:8000/";
+
     //public static String user,pass;
     private static String REGISTER_URL;
     private EditText username, password;
@@ -39,7 +42,7 @@ public class LoginChoice extends AppCompatActivity {
         setContentView(R.layout.activity_login_choice);
         b2 = (Button) findViewById(R.id.button2);
         username = (EditText) findViewById(R.id.editText3);
-        password = (EditText) findViewById(R.id.editText2);
+        password = (EditText) findViewById(R.id.editText);
 
         b2.setOnClickListener(new View.OnClickListener() {
 

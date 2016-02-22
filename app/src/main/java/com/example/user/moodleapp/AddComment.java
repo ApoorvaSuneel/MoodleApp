@@ -25,7 +25,7 @@ public class AddComment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_thread);
+        setContentView(R.layout.activity_add_comment);
         send = (Button) findViewById(R.id.button6);
 
         desc = (EditText) findViewById(R.id.editText5);
@@ -34,7 +34,10 @@ public class AddComment extends AppCompatActivity {
             public void onClick(View v) {
                 cond = desc.getText().toString();
                 JSON_URL = LoginChoice.ip +"threads/post_comment.json?thread_id="+Threadc.Tsel+"&description="+cond;
-                sendRequest();
+                Toast.makeText(getApplicationContext(),
+                        "yahoo",
+                        Toast.LENGTH_SHORT).show();
+               sendRequest();
             }
         });
     }
