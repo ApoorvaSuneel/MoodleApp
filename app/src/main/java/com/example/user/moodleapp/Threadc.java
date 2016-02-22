@@ -73,7 +73,7 @@ public class Threadc extends AppCompatActivity {
                         jsonResponse=name+jsonResponse;
                        // threaddata1.add("NAME   :"+"  "+grades.getString("name"));
                        // threaddata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                        threaddata1.add("TITLE   :" + "  " + grades.getString("id"));
+                        threaddata1.add("TITLE   :" + "  " + grades.getString("description"));
                        // threaddata1.add("ID   :" + "  " + grades.getString("title"));
 
                     }
@@ -100,7 +100,15 @@ public class Threadc extends AppCompatActivity {
         });
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
-
+    }
+    public void clickcourse(View view) {
+        Toast.makeText(getApplicationContext(),
+                "click listener working.",
+                Toast.LENGTH_SHORT).show();
+        Intent myIntent = new Intent(
+                Threadc.this, ThreadExp.class);
+       // myIntent.putExtra("id",arraygrade);
+        startActivity(myIntent);
 
 
     }
