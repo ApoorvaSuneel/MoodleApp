@@ -25,8 +25,6 @@ public class AddComment extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_comment);
-        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_thread);
         send = (Button) findViewById(R.id.button6);
 
