@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
     ImageButton im,nt;
+    private static String Tsel="Default";
     public static int udone=0;
     public static ArrayList<String> threaddata1=new ArrayList<String>();
     public static ArrayList<String> threadid=new ArrayList<String>();
@@ -75,7 +77,8 @@ public class Threadc extends AppCompatActivity {
 
 
                 try {
-
+                    threadid.clear();
+                    threaddata1.clear();
                     JSONArray glist =response.getJSONArray("course_threads");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
@@ -88,7 +91,7 @@ public class Threadc extends AppCompatActivity {
                         }
                     }
                     if(glist.length()>0){
-                        udone=1;
+                        udone=0;//set 1 for static
                     }
                     Toast.makeText(Threadc.this,
                             jsonResponse,
@@ -115,9 +118,14 @@ public class Threadc extends AppCompatActivity {
         RequestP.add(jreq);
     }
     public void clickcourse(View view) {
+        Button tempb=(Button)view;
+        String Sel= tempb.getText().toString();
+        int ind=threaddata1.indexOf(Sel);
+        Tsel=threadid.get(ind);
         Toast.makeText(getApplicationContext(),
-                "click listener working.",
+                Tsel,
                 Toast.LENGTH_SHORT).show();
+
         Intent myIntent = new Intent(
                 Threadc.this, ThreadExp.class);
        // myIntent.putExtra("id",arraygrade);

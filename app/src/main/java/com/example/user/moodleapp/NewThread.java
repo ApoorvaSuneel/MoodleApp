@@ -40,7 +40,7 @@ public class NewThread extends AppCompatActivity {
             public void onClick(View v) {
                 cont = title.getText().toString();
                 cond = desc.getText().toString();
-                JSON_URL = LoginChoice.ip + "/threads/new.json?title=" + cont + "&description=" + cond + "&course_code=" + Courses.Csel;
+                JSON_URL = LoginChoice.ip + "threads/new.json?title=" + cont + "&description=" + cond + "&course_code=" + Courses.Csel;
                 sendRequest();
             }
         });

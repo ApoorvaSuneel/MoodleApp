@@ -62,7 +62,7 @@ public class Assignmentc extends AppCompatActivity {
 
 
                 try {
-
+                    assgndata.clear();
                     JSONArray glist =response.getJSONArray("assignments");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
@@ -77,7 +77,7 @@ public class Assignmentc extends AppCompatActivity {
                         }
                     }
                     if(glist.length()>0){
-                        udone=1;
+                        udone=0;
                     }
                     Toast.makeText(Assignmentc.this,
                             jsonResponse,
