@@ -63,7 +63,7 @@ public class Gradec extends AppCompatActivity {
 
 
                 try {
-
+                    gradata1.clear();
                     JSONArray glist =response.getJSONArray("grades");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
@@ -78,7 +78,7 @@ public class Gradec extends AppCompatActivity {
                         }
                     }
                     if(glist.length()>0){
-                        udone=1;
+                        udone=0;//set 1 for static
                     }
                     Toast.makeText(Gradec.this,
                             jsonResponse,

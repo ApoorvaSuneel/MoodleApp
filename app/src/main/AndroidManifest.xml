@@ -45,7 +45,8 @@
         <activity android:name=".Gradec" />
         <activity android:name=".Assignmentc" />
         <activity android:name=".ThreadExp" />
-        <activity android:name=".NewThread"></activity>
+        <activity android:name=".NewThread" />
+        <activity android:name=".AddComment"></activity>
     </application>
 
 </manifest>
