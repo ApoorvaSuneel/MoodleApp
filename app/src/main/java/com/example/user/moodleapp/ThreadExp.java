@@ -1,5 +1,6 @@
 package com.example.user.moodleapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,8 +22,11 @@ public class ThreadExp extends AppCompatActivity {
         reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent myIntent = new Intent(
+                        ThreadExp.this, AddComment.class);
+                startActivity(myIntent);
             }
         });
+        
     }
 }
