@@ -38,7 +38,7 @@ import java.util.List;
 public class Courses extends AppCompatActivity {
     ImageButton im;
     public static String Csel="default";
-    public static int udone=0;
+    private static int udone=0;
     public static ArrayList<String> mycourses=new ArrayList<>();
     public static ArrayList<String> id=new ArrayList<String>();
     public static ArrayList<String> CCodes=new ArrayList<String>();
