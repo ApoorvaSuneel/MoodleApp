@@ -42,7 +42,8 @@
         <activity android:name=".Grades" />
         <activity android:name=".GradeView" />
         <activity android:name=".Threadc" />
-        <activity android:name=".CourseP"></activity>
+        <activity android:name=".CourseP" />
+        <activity android:name=".Gradec"></activity>
     </application>
 
 </manifest>

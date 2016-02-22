@@ -21,7 +21,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 
 public class LoginChoice extends AppCompatActivity {
     Button b2;
-public static String ip="http://10.192.38.174:8000/";
+public static String ip="http://10.192.40.165:8000/";
 
     //public static String user,pass;
     private static String REGISTER_URL;
@@ -74,6 +74,9 @@ public static String ip="http://10.192.38.174:8000/";
 
                         Intent myIntent = new Intent(
                                 LoginChoice.this, Profile.class);
+
+
+
                         startActivity(myIntent);
                     }
                 },
