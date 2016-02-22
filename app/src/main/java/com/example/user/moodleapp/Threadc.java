@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -23,9 +24,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
-    ImageButton im;
+    ImageButton im,nt;
+    public static String Tsel="Default";
     public static int udone=0;
     public static ArrayList<String> threaddata1=new ArrayList<String>();
+    public static ArrayList<String> threadid=new ArrayList<String>();
     private String jsonResponse;
     public static String[] arraythread;
     private ListView l;
@@ -49,8 +52,18 @@ public class Threadc extends AppCompatActivity {
 
             }
         });
+        nt=(ImageButton)findViewById(R.id.imageView1);
+        nt.setOnClickListener(new View.OnClickListener() {
 
-        JSON_URL= LoginChoice.ip + "courses/course.json/cop290/threads";
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        Threadc.this, NewThread.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/threads";
         sendRequest();
     }
 
@@ -64,18 +77,21 @@ public class Threadc extends AppCompatActivity {
 
 
                 try {
-
+                    threadid.clear();
+                    threaddata1.clear();
                     JSONArray glist =response.getJSONArray("course_threads");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
                         JSONObject grades =(JSONObject) glist.get(i);
                         name = grades.getString("id")+"  "+grades.getString("title");
                         jsonResponse=name+jsonResponse;
-                       // threaddata1.add("NAME   :"+"  "+grades.getString("name"));
-                       // threaddata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                        threaddata1.add("TITLE   :" + "  " + grades.getString("description"));
-                       // threaddata1.add("ID   :" + "  " + grades.getString("title"));
-
+                        if(udone==0) {
+                            threaddata1.add(grades.getString("title"));
+                            threadid.add(grades.getString("id"));
+                        }
+                    }
+                    if(glist.length()>0){
+                        udone=0;//set 1 for static
                     }
                     Toast.makeText(Threadc.this,
                             jsonResponse,
@@ -102,9 +118,14 @@ public class Threadc extends AppCompatActivity {
         RequestP.add(jreq);
     }
     public void clickcourse(View view) {
+        Button tempb=(Button)view;
+        String Sel= tempb.getText().toString();
+        int ind=threaddata1.indexOf(Sel);
+        Tsel=threadid.get(ind);
         Toast.makeText(getApplicationContext(),
-                "click listener working.",
+                Tsel,
                 Toast.LENGTH_SHORT).show();
+
         Intent myIntent = new Intent(
                 Threadc.this, ThreadExp.class);
        // myIntent.putExtra("id",arraygrade);

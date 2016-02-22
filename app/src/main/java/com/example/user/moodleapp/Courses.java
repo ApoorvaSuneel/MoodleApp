@@ -38,7 +38,7 @@ import java.util.List;
 public class Courses extends AppCompatActivity {
     ImageButton im;
     public static String Csel="default";
-    public static int udone=0;
+    private static int udone=0;
     public static ArrayList<String> mycourses=new ArrayList<>();
     public static ArrayList<String> id=new ArrayList<String>();
     public static ArrayList<String> CCodes=new ArrayList<String>();
@@ -76,6 +76,8 @@ public class Courses extends AppCompatActivity {
 
                 try {
                     // Parsing json object response
+                    mycourses.clear();
+                    CCodes.clear();
                     JSONArray clist = response.getJSONArray("courses");
                     for (int i = 0; i < clist.length(); i++) {
 
@@ -100,7 +102,7 @@ public class Courses extends AppCompatActivity {
                    /* CustomList cl = new CustomList(Courses.this,array1);//, pj.descriptions,pj.credits,pj.ids,pj.ltps);
                     l.setAdapter(cl);*/
                     if (clist.length()>0){
-                        udone=1;
+                        udone=0;//for static put 1
                     }
                 }
                 catch (JSONException e) {

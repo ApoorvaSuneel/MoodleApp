@@ -22,7 +22,7 @@ public class Profile extends AppCompatActivity {
 
             public void onClick(View v) {
                 Intent myIntent = new Intent(
-                        Profile.this,Grades.class);
+                        Profile.this,GradeView.class);
                 startActivity(myIntent);
             }
         });

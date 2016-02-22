@@ -62,19 +62,22 @@ public class Assignmentc extends AppCompatActivity {
 
 
                 try {
-
+                    assgndata.clear();
                     JSONArray glist =response.getJSONArray("assignments");
                     String name="";
                     for (int i = 0; i < glist.length(); i++) {
                         JSONObject grades =(JSONObject) glist.get(i);
                         name = "  "+grades.getString("name");
                         jsonResponse=name+jsonResponse;
-
-                        assgndata.add("NAME   :" + "  " + grades.getString("name"));
-                       // assgndata.add("CREATED AT   :" + "  " + grades.getString("created_at"));
-                        //assgndata.add("DEADLINE   :" + "  " + grades.getString("deadline"));
-                        //assgndata.add("   :" + "  " + grades.getString("weightage"));
-
+                        if(udone==0) {
+                            assgndata.add("NAME   :" + "  " + grades.getString("name"));
+                            // assgndata.add("CREATED AT   :" + "  " + grades.getString("created_at"));
+                            //assgndata.add("DEADLINE   :" + "  " + grades.getString("deadline"));
+                            //assgndata.add("   :" + "  " + grades.getString("weightage"));
+                        }
+                    }
+                    if(glist.length()>0){
+                        udone=0;
                     }
                     Toast.makeText(Assignmentc.this,
                             jsonResponse,
