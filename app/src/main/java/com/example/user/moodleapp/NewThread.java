@@ -31,7 +31,7 @@ public class NewThread extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_thread);
-        send = (ImageButton) findViewById(R.id.imageView);
+        send = (ImageButton) findViewById(R.id.imageButton);
 
         title = (EditText) findViewById(R.id.editText);
         desc = (EditText) findViewById(R.id.editText4);

@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
     ImageButton im,nt;
-    private static String Tsel="Default";
+    public static String Tsel="Default";
     public static int udone=0;
     public static ArrayList<String> threaddata1=new ArrayList<String>();
     public static ArrayList<String> threadid=new ArrayList<String>();
