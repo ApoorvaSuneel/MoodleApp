@@ -31,22 +31,29 @@ public class NewThread extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_thread);
-        send = (ImageButton) findViewById(R.id.imageView);
+        send = (ImageButton) findViewById(R.id.imageButton);
 
         title = (EditText) findViewById(R.id.editText);
         desc = (EditText) findViewById(R.id.editText4);
+        Toast.makeText(getApplicationContext(),
+                "yahoo",
+                Toast.LENGTH_SHORT).show();
 
         send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 cont = title.getText().toString();
                 cond = desc.getText().toString();
-                JSON_URL = LoginChoice.ip + "threads/new.json?title=" + cont + "&description=" + cond + "&course_code=" + Courses.Csel;
+                Toast.makeText(getApplicationContext(),
+                        cont+" "+cond,
+                        Toast.LENGTH_SHORT).show();
+
+               JSON_URL = LoginChoice.ip + "threads/new.json?title=" + cont + "&description=" + cond + "&course_code=" + Courses.Csel;
                 sendRequest();
             }
         });
     }
 
-    private void sendRequest() {
+   private void sendRequest() {
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
 

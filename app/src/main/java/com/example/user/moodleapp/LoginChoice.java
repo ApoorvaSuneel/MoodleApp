@@ -22,7 +22,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class LoginChoice extends AppCompatActivity {
     Button b2;
 
-public static String ip="http://10.208.23.100:8000/";
+public static String ip="http://10.192.38.174:8000/";
 
 
 
