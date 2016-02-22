@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -36,9 +37,11 @@ import java.util.List;
 
 public class Courses extends AppCompatActivity {
     ImageButton im;
+    public static String Csel="default";
     public static int udone=0;
-    private static ArrayList<String> mycourses=new ArrayList<>();
-    private static ArrayList<String> id=new ArrayList<String>();
+    public static ArrayList<String> mycourses=new ArrayList<>();
+    public static ArrayList<String> id=new ArrayList<String>();
+    public static ArrayList<String> CCodes=new ArrayList<String>();
     private String jsonResponse;
     private ListView l;
     private static String JSON_URL ;
@@ -82,6 +85,7 @@ public class Courses extends AppCompatActivity {
                         jsonResponse=name+jsonResponse;
                         if(udone==0){
                             mycourses.add(name);
+                            CCodes.add(coursee.getString("code"));
                         }
 
 
@@ -122,9 +126,17 @@ public class Courses extends AppCompatActivity {
 
 
     public void clickcourse(View view) {
+        Intent myIntent = new Intent(Courses.this, CourseP.class);
+        Button tempb=(Button)view;
+        String Sel= tempb.getText().toString();
+        int ind=mycourses.indexOf(Sel);
+        Csel=CCodes.get(ind);
         Toast.makeText(getApplicationContext(),
-                "Error: WORKING courses ",
+                Csel,
                 Toast.LENGTH_SHORT).show();
+
+        startActivity(myIntent);
+
     }
     }
 
