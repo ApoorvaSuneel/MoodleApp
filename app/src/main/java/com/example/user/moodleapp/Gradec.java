@@ -70,11 +70,15 @@ public class Gradec extends AppCompatActivity {
                         JSONObject grades =(JSONObject) glist.get(i);
                         name = grades.getString("id")+"  "+grades.getString("name");
                         jsonResponse=name+jsonResponse;
-                        gradata1.add("NAME   :"+"  "+grades.getString("name"));
-                        gradata1.add("YOUR SCORE   :"+"  "+grades.getString("score"));
-                        gradata1.add("TOTAL   :"+"  "+grades.getString("out_of"));
-                        gradata1.add("WEIGHTAGE   :"+"  "+grades.getString("weightage"));
-
+                        if(udone==0) {
+                            gradata1.add("NAME   :" + "  " + grades.getString("name"));
+                            gradata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
+                            gradata1.add("TOTAL   :" + "  " + grades.getString("out_of"));
+                            gradata1.add("WEIGHTAGE   :" + "  " + grades.getString("weightage"));
+                        }
+                    }
+                    if(glist.length()>0){
+                        udone=1;
                     }
                     Toast.makeText(Gradec.this,
                             jsonResponse,

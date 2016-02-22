@@ -43,7 +43,8 @@
         <activity android:name=".CourseP" />
         <activity android:name=".Gradec" />
         <activity android:name=".Assignmentc" />
-        <activity android:name=".ThreadExp"></activity>
+        <activity android:name=".ThreadExp" />
+        <activity android:name=".NewThread"></activity>
     </application>
 
 </manifest>

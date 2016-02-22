@@ -23,9 +23,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
-    ImageButton im;
+    ImageButton im,nt;
     public static int udone=0;
     public static ArrayList<String> threaddata1=new ArrayList<String>();
+    public static ArrayList<String> threadid=new ArrayList<String>();
     private String jsonResponse;
     public static String[] arraythread;
     private ListView l;
@@ -49,8 +50,18 @@ public class Threadc extends AppCompatActivity {
 
             }
         });
+        nt=(ImageButton)findViewById(R.id.imageView1);
+        nt.setOnClickListener(new View.OnClickListener() {
 
-        JSON_URL= LoginChoice.ip + "courses/course.json/cop290/threads";
+            public void onClick(View v) {
+                Intent myIntent = new Intent(
+                        Threadc.this, NewThread.class);
+                startActivity(myIntent);
+
+            }
+        });
+
+        JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/threads";
         sendRequest();
     }
 
@@ -71,11 +82,13 @@ public class Threadc extends AppCompatActivity {
                         JSONObject grades =(JSONObject) glist.get(i);
                         name = grades.getString("id")+"  "+grades.getString("title");
                         jsonResponse=name+jsonResponse;
-                       // threaddata1.add("NAME   :"+"  "+grades.getString("name"));
-                       // threaddata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                        threaddata1.add("TITLE   :" + "  " + grades.getString("description"));
-                       // threaddata1.add("ID   :" + "  " + grades.getString("title"));
-
+                        if(udone==0) {
+                            threaddata1.add(grades.getString("title"));
+                            threadid.add(grades.getString("id"));
+                        }
+                    }
+                    if(glist.length()>0){
+                        udone=1;
                     }
                     Toast.makeText(Threadc.this,
                             jsonResponse,
