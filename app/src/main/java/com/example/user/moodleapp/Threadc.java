@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -25,6 +26,7 @@ import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
     ImageButton im,nt;
+    TextView t1,t2;
     public static String Tsel="Default";
     public static int udone=0;
     public static ArrayList<String> threaddata1=new ArrayList<String>();
@@ -62,6 +64,10 @@ public class Threadc extends AppCompatActivity {
 
             }
         });
+        t1=(TextView)findViewById(R.id.textView6);
+        t2=(TextView)findViewById(R.id.textView);
+        t1.setText(LoginChoice.res[0]);
+        t2.setText(LoginChoice.res[1]);
 
         JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/threads";
         sendRequest();

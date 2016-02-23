@@ -13,17 +13,10 @@
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/student2"
-        android:id="@+id/imageView"/>
-
-    <!--
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/student2"
-        android:background="@drawable/roundbutton"
-        android:id="@+id/imageView"/>
-    -->
+        android:src="@drawable/ic_launcher1"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,11 +24,8 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Firstname"
         android:id="@+id/textView7"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        />
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,20 +34,22 @@
         android:text="Lastname"
         android:id="@+id/textView8"
         android:layout_below="@+id/textView7"
-        android:layout_toRightOf="@+id/imageView"
         android:layout_alignRight="@+id/textView7"
         android:layout_alignEnd="@+id/textView7" />
 
         <ScrollView
             android:layout_width="370dp"
             android:layout_height="320dp"
-            android:layout_below="@+id/imageView"
+
+            android:layout_marginTop="200dp"
+
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
             <RelativeLayout
                 android:layout_width="370dp"
+
                 android:layout_height="320dp">
 
             <LinearLayout
@@ -65,46 +57,34 @@
                   android:orientation="vertical"
                 android:layout_height="320dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/username" />
-                
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/entry" />
-
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="courses"
                     android:id="@+id/course"
                     />
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="Grades"
                     android:id="@+id/grades"
                     />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text=" View Notifications"
                     android:id="@+id/notify"
                     />
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="View my files"
                     android:id="@+id/files"
                     />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:text="LOGOUT"
                     android:id="@+id/logout"
@@ -116,10 +96,24 @@
 
 </ScrollView>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/username"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignBottom="@+id/textView8"
+        android:layout_centerHorizontal="true" />
 
-
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/entry"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/textView8"
+        android:layout_alignLeft="@+id/username"
+        android:layout_alignStart="@+id/username" />
 
 
 </RelativeLayout>

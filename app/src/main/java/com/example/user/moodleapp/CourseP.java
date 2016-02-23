@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 public class CourseP extends AppCompatActivity {
     ImageButton im;
+    TextView t1,t2;
     Button asnb,threadb,gradeb;
     TextView codec;
     @Override
@@ -19,6 +20,8 @@ public class CourseP extends AppCompatActivity {
         setContentView(R.layout.activity_course_p);
         //bind Image button
         im=(ImageButton)findViewById(R.id.imageView);
+        t1=(TextView)findViewById(R.id.textView6);
+        t2=(TextView)findViewById(R.id.textView);
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -28,6 +31,8 @@ public class CourseP extends AppCompatActivity {
 
             }
         });
+        t1.setText(LoginChoice.res[0]);
+        t2.setText(LoginChoice.res[1]);
         //bind the text view
         codec=(TextView)findViewById(R.id.textView2);
         String ccode =Courses.Csel;

@@ -5,8 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,10 +26,12 @@ import java.util.ArrayList;
 
 public class Assignmentc extends AppCompatActivity {
     ImageButton im;
+    TextView t1,t2;
     public static int udone=0;
     public static ArrayList<String> assgndata=new ArrayList<String>();
     private String jsonResponse;
     public static String[] arrayassgn;
+    public static String[] arrayassgn1;
     private ListView l;
     private static String JSON_URL ;
 
@@ -35,10 +39,11 @@ public class Assignmentc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assignmentc);
-        Toast.makeText(Assignmentc.this, Courses.Csel, Toast.LENGTH_SHORT).show();
+        Toast.makeText(Assignmentc.this, Courses.Csel, Toast.LENGTH_SHORT).show();//toasting the name of the course
 
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lvac);
+        //image to move back to home
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -48,7 +53,10 @@ public class Assignmentc extends AppCompatActivity {
 
             }
         });
-
+        t1=(TextView)findViewById(R.id.textView6);
+        t2=(TextView)findViewById(R.id.textView);
+        t1.setText(LoginChoice.res[0]);
+        t2.setText(LoginChoice.res[1]);
         JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/assignments";
         sendRequest();
     }
@@ -59,30 +67,24 @@ public class Assignmentc extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-
-
                 try {
+                    ArrayList<String> ne=new ArrayList<String>();
                     assgndata.clear();
                     JSONArray glist =response.getJSONArray("assignments");
-                    String name="";
                     for (int i = 0; i < glist.length(); i++) {
                         JSONObject grades =(JSONObject) glist.get(i);
-                        name = "  "+grades.getString("name");
-                        jsonResponse=name+jsonResponse;
                         if(udone==0) {
-                            assgndata.add("NAME   :" + "  " + grades.getString("name"));
-                            // assgndata.add("CREATED AT   :" + "  " + grades.getString("created_at"));
-                            //assgndata.add("DEADLINE   :" + "  " + grades.getString("deadline"));
-                            //assgndata.add("   :" + "  " + grades.getString("weightage"));
+                            assgndata.add("NAME   :\n" + "  " + grades.getString("name"));
+                            ne.add("CREATED AT   :" + "  " + grades.getString("created_at"));
+                            ne.add("DEADLINE   :" + "  " + grades.getString("deadline"));
+                            ne.add("DESCRIPTION   :" + "  " + grades.getString("description"));
                         }
                     }
                     if(glist.length()>0){
                         udone=0;
                     }
-                    Toast.makeText(Assignmentc.this,
-                            jsonResponse,
-                            Toast.LENGTH_LONG).show();
                     arrayassgn=assgndata.toArray(new String[assgndata.size()]);
+                    arrayassgn1=ne.toArray(new String[ne.size()]);
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Assignmentc.this,R.layout.list_view_layout,R.id.code,arrayassgn);
                     l.setAdapter(t);
                 }
@@ -102,6 +104,10 @@ public class Assignmentc extends AppCompatActivity {
         });
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
-
+    }
+    public void clickcourse(View view) {
+        Intent myIntent = new Intent(Assignmentc.this, AssignmentPreview.class);
+        myIntent.putExtra("assgn",arrayassgn1);
+        startActivity(myIntent);
     }
 }
