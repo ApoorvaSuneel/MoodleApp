@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText5"
-        android:textColor="@color/pastelgreen"
+        android:textColor="@color/white"
         android:hint="Enter your comment here"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp" />

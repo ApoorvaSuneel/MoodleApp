@@ -11,10 +11,20 @@
     tools:context="com.example.user.moodleapp.Profile">
 
     <ImageButton
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/student2"
+        android:id="@+id/imageView"/>
+
+    <!--
+    <ImageButton
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/student2"
+        android:background="@drawable/roundbutton"
         android:id="@+id/imageView"/>
+    -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
@@ -60,11 +70,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/username" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/email" />
+                
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
