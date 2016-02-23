@@ -13,7 +13,7 @@
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/student2"
+        android:background="@drawable/cutmypic1"
         android:id="@+id/imageView"/>
 
     <LinearLayout

@@ -12,7 +12,7 @@
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:src="@drawable/student2"
+        android:background="@drawable/cutmypic1"
         android:id="@+id/imageView"/>
 
 
@@ -98,7 +98,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Assignments"
-        android:textColor="@color/pastelgreen"
+        android:textColor="@color/darkskyblue"
         android:background="@drawable/buttonborder"
         android:id="@+id/button"
         android:layout_above="@+id/button3"
@@ -108,7 +108,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Grades"
-        android:textColor="@color/pastelgreen"
+        android:textColor="@color/darkskyblue"
         android:layout_marginTop="30dp"
         android:id="@+id/button3"
         android:background="@drawable/buttonborder"
@@ -119,7 +119,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Threads"
-        android:textColor="@color/pastelgreen"
+        android:textColor="@color/darkskyblue"
         android:layout_marginTop="30dp"
         android:id="@+id/button4"
         android:background="@drawable/buttonborder"

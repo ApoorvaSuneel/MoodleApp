@@ -8,6 +8,7 @@
     <color name="white">#F8F8FF</color>
     <color name="bluewhite">#F5FAFA</color>
     <color name="pastelgreen">#92CCA6</color>
-
+    <color name="list">#b0e0e6</color>
+    <color name="darkskyblue">#00BFFF</color>
 
 </resources>

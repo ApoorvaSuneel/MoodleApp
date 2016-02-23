@@ -11,115 +11,149 @@
     tools:context="com.example.user.moodleapp.Profile">
 
     <ImageButton
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/student2"
-        android:id="@+id/imageView"/>
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/cutmypic1"
+        android:id="@+id/imageView"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_centerHorizontal="true" />
 
-    <!--
-    <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/student2"
-        android:background="@drawable/roundbutton"
-        android:id="@+id/imageView"/>
-    -->
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+
+    </LinearLayout>
 
     <TextView
-        android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Firstname"
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        />
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:text="Lastname"
+        android:textSize="20dp"
+        android:layout_gravity="right"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:id="@+id/textView"
+        android:layout_marginLeft="58dp"
+        android:layout_marginStart="58dp"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/files"
+        android:layout_alignStart="@+id/files" />
 
     <TextView
+        android:layout_height="30dp"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Lastname"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView7"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignRight="@+id/textView7"
-        android:layout_alignEnd="@+id/textView7" />
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:text="Firstname"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:id="@+id/textView6"
+        android:layout_marginRight="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_alignEnd="@+id/textView1" />
 
-        <ScrollView
-            android:layout_width="370dp"
-            android:layout_height="320dp"
-            android:layout_below="@+id/imageView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-            <RelativeLayout
-                android:layout_width="370dp"
-                android:layout_height="320dp">
+    <TextView
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:text="NewText2"
+        android:textSize="20dp"
+        android:layout_gravity="center"
+        android:inputType="text"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:id="@+id/textView2"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignStart="@+id/textView1" />
 
-            <LinearLayout
-                android:layout_width="370dp"
-                  android:orientation="vertical"
-                android:layout_height="320dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/username" />
-                
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:id="@+id/entry" />
+    <TextView
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:text="NewText1"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:id="@+id/textView1"
+        android:layout_above="@+id/textView2"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignStart="@+id/imageView"
+        android:layout_centerHorizontal="true"/>
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="courses"
+                    android:background="@drawable/buttonborder"
+                    android:textColor="@color/darkskyblue"
                     android:id="@+id/course"
-                    />
+                    android:layout_marginBottom="10dp"
+                    android:layout_above="@+id/grades"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/buttonborder"
+                    android:textColor="@color/darkskyblue"
                     android:text="Grades"
                     android:id="@+id/grades"
-                    />
+                    android:layout_above="@+id/notify"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignRight="@+id/logout"
+                    android:layout_alignEnd="@+id/logout" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/buttonborder"
+                    android:textColor="@color/darkskyblue"
                     android:text=" View Notifications"
                     android:id="@+id/notify"
-                    />
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="115dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/buttonborder"
+                    android:textColor="@color/darkskyblue"
                     android:text="View my files"
                     android:id="@+id/files"
-                    />
+                    android:layout_below="@+id/textView2"
+                    android:layout_centerHorizontal="true" />
 
                 <Button
-                    android:layout_width="wrap_content"
+                    android:layout_width="115dp"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/buttonborder"
+                    android:textColor="@color/darkskyblue"
                     android:text="LOGOUT"
                     android:id="@+id/logout"
-                    />
-            </LinearLayout>
+                    android:layout_alignTop="@+id/files"
+                    android:layout_alignRight="@+id/course"
+                    android:layout_alignEnd="@+id/course" />
 
-
-                </RelativeLayout>
-
-</ScrollView>
-
-
-
-
-
-
+                <Button
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/files"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:id="@+id/button7" />
 
 </RelativeLayout>
