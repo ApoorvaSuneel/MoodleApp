@@ -45,7 +45,7 @@
 
     <Button
         android:layout_width="150dp"
-        android:textColor="@color/pastelgreen"
+        android:textColor="@color/darkskyblue"
         android:layout_height="wrap_content"
         android:text=" Add Comment"
         android:id="@+id/button5"
