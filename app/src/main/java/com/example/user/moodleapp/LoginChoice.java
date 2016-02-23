@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -13,11 +14,18 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class LoginChoice extends AppCompatActivity {
 
@@ -27,9 +35,11 @@ public class LoginChoice extends AppCompatActivity {
 
 
     //public static String user,pass;
-    private static String REGISTER_URL;
+    private static String JSON_URL;
+    public static ArrayList<String> logchoice=new ArrayList<String>();
+    public static String[] res;
     private EditText username, password;
-    public static String usernamestr, passwordstr;
+    public static String usernamestr, passwordstr,jsonResponse;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -51,97 +61,75 @@ public class LoginChoice extends AppCompatActivity {
             public void onClick(View v) {
                 usernamestr = username.getText().toString();
                 passwordstr = password.getText().toString();
-                REGISTER_URL = ip+"default/login.json?userid=" + usernamestr + "&password=" + passwordstr;
+                JSON_URL = ip + "default/login.json?userid=" + usernamestr + "&password=" + passwordstr;
                 registerUser();
 
             }
         });
 
 
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
     }
 
     private void registerUser() {
+        JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
+                JSON_URL, null, new Response.Listener<JSONObject>() {
+
+            @Override
+            public void onResponse(JSONObject response) {
 
 
-        //send a request if data is valid
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, REGISTER_URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        Toast.makeText(LoginChoice.this, response, Toast.LENGTH_SHORT).show();
+                try {
 
-                        //CookieHandler.setDefault(new java.net.CookieManager());
+                    JSONObject u=response.getJSONObject("user");
+                    String s=response.getString("success");
 
-                        Intent myIntent = new Intent(
-                                LoginChoice.this, Profile.class);
+                    String name = "";
+
+                        name = u.getString("first_name") + "  " + u.getString("last_name");
+                        jsonResponse = "Hello "+ name ;
+                        logchoice.add(u.getString("first_name"));
+                        logchoice.add(u.getString("last_name"));
+                        logchoice.add(u.getString("entry_no"));
+                        logchoice.add(u.getString("email"));
+                        logchoice.add(s);
+                    res = logchoice.toArray(new String[logchoice.size()]);
+                     if (s.equals("true"))
+                     {
+                         //define intent
+                         Toast.makeText(LoginChoice.this,
+                                 jsonResponse,
+                                 Toast.LENGTH_LONG).show();
+                         Intent myIntent = new Intent(
+                                 LoginChoice.this, Profile.class);
+                         myIntent.putExtra("data",res);
+                         startActivity(myIntent);
+
+
+                     }
 
 
 
-                        startActivity(myIntent);
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(LoginChoice.this, error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                });
 
-        // Get a RequestQueue
-        //RequestQueue queue = MyApp.getInstance(this.getApplicationContext()).
-          //      getRequestQueue();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(),
+                            "INVALID LOGIN"+e.getMessage(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+        }, new Response.ErrorListener() {
 
-// ...
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-// Add a request (in this example, called stringRequest) to your RequestQueue.
-        //MyApp.getInstance(this.getApplicationContext()).addToRequestQueue(stringRequest);
+            }
+        });
         RequestQueue RequestP = Volley.newRequestQueue(this);
-        RequestP.add(stringRequest);
+        RequestP.add(jreq);
 
 
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        client.connect();
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "LoginChoice Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.user.moodleapp/http/host/path")
-        );
-        AppIndex.AppIndexApi.start(client, viewAction);
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-
-        // ATTENTION: This was auto-generated to implement the App Indexing API.
-        // See https://g.co/AppIndexing/AndroidStudio for more information.
-        Action viewAction = Action.newAction(
-                Action.TYPE_VIEW, // TODO: choose an action type.
-                "LoginChoice Page", // TODO: Define a title for the content shown.
-                // TODO: If you have web page content that matches this app activity's content,
-                // make sure this auto-generated web page URL is correct.
-                // Otherwise, set the URL to null.
-                Uri.parse("http://host/path"),
-                // TODO: Make sure this auto-generated app deep link URI is correct.
-                Uri.parse("android-app://com.example.user.moodleapp/http/host/path")
-        );
-        AppIndex.AppIndexApi.end(client, viewAction);
-        client.disconnect();
-    }
 }
