@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.CourseP">
     <ImageButton
         android:layout_width="70dp"
@@ -14,6 +15,50 @@
         android:src="@drawable/student2"
         android:id="@+id/imageView"/>
 
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:text="Lastname"
+        android:textSize="20dp"
+        android:layout_gravity="right"
+        android:inputType="text"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/textView6"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6"
+        android:layout_marginLeft="25dp"
+        android:layout_marginStart="25dp" />
+
+    <TextView
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:ellipsize="end"
+        android:text="Firstname"
+        android:textColor="@color/white"
+        android:textStyle="bold|italic"
+        android:textSize="20dp"
+        android:inputType="text"
+        android:layout_marginLeft="27dp"
+        android:layout_marginStart="27dp"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
+
+
+    <!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="30dp"
@@ -35,38 +80,48 @@
         android:layout_toRightOf="@+id/imageView"
         android:layout_alignRight="@+id/textView7"
         android:layout_alignEnd="@+id/textView7" />
+    -->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course Code"
+        android:textStyle="bold|italic"
+        android:textColor="@color/white"
         android:id="@+id/textView2"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Assignments"
+        android:textColor="@color/pastelgreen"
+        android:background="@drawable/buttonborder"
         android:id="@+id/button"
         android:layout_above="@+id/button3"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Grades"
+        android:textColor="@color/pastelgreen"
+        android:layout_marginTop="30dp"
         android:id="@+id/button3"
+        android:background="@drawable/buttonborder"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Threads"
+        android:textColor="@color/pastelgreen"
+        android:layout_marginTop="30dp"
         android:id="@+id/button4"
+        android:background="@drawable/buttonborder"
         android:layout_below="@+id/button3"
         android:layout_alignLeft="@+id/button3"
         android:layout_alignStart="@+id/button3" />

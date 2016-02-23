@@ -49,7 +49,6 @@ public class Gradec extends AppCompatActivity {
 
             Toast.makeText(Gradec.this, Courses.Csel, Toast.LENGTH_SHORT).show();
 
-<<<<<<< HEAD
             im = (ImageButton) findViewById(R.id.imageView);
             l = (ListView) findViewById(R.id.Lvgc);
             im.setOnClickListener(new View.OnClickListener() {
@@ -59,32 +58,6 @@ public class Gradec extends AppCompatActivity {
                             Gradec.this, Profile.class);
                     startActivity(myIntent);
 
-=======
-                try {
-                    gradata1.clear();
-                    JSONArray glist =response.getJSONArray("grades");
-                    String name="";
-                    for (int i = 0; i < glist.length(); i++) {
-                        JSONObject grades =(JSONObject) glist.get(i);
-                        name = grades.getString("id")+"  "+grades.getString("name");
-                        jsonResponse=name+jsonResponse;
-                        if(udone==0) {
-                            gradata1.add("NAME   :" + "  " + grades.getString("name"));
-                            gradata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                            gradata1.add("TOTAL   :" + "  " + grades.getString("out_of"));
-                            gradata1.add("WEIGHTAGE   :" + "  " + grades.getString("weightage"));
-                        }
-                    }
-                    if(glist.length()>0){
-                        udone=0;//set 1 for static
-                    }
-                    Toast.makeText(Gradec.this,
-                            jsonResponse,
-                            Toast.LENGTH_LONG).show();
-                    arraygrade1=gradata1.toArray(new String[gradata1.size()]);
-                    ArrayAdapter<String> t =new ArrayAdapter<String>(Gradec.this,R.layout.list_view_layout,R.id.code,arraygrade1);
-                    l.setAdapter(t);
->>>>>>> ca1d240050543b5348f064264c14a67dad88a172
                 }
             });
 

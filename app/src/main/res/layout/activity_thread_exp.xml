@@ -7,13 +7,16 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.ThreadExp">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Title"
+        android:textStyle="bold|italic"
+        android:textColor="@color/white"
         android:id="@+id/textView11"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -24,6 +27,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Comments"
+        android:textStyle="bold|italic"
+        android:textColor="@color/white"
+        android:layout_marginTop="15dp"
         android:id="@+id/textView12"
         android:layout_below="@+id/textView11"
         android:layout_alignParentLeft="true"
@@ -38,10 +44,12 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
+        android:textColor="@color/pastelgreen"
         android:layout_height="wrap_content"
         android:text=" Add Comment"
         android:id="@+id/button5"
+        android:background="@drawable/buttonborder"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/listView"
         android:layout_alignEnd="@+id/listView" />

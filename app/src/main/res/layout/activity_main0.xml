@@ -7,8 +7,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/books"
+    android:background="@drawable/bluebooks"
     tools:context="com.example.user.moodleapp.MainActivity0">
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/cutmypic1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MoodleApp"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:fontFamily="cursive"
+        android:textColor="@color/bluewhite"
+        android:layout_marginTop="250dp"
+        android:layout_gravity="center"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        />
+
 
 
 
