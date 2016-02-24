@@ -27,9 +27,9 @@ import java.util.ArrayList;
 public class Assignmentc extends AppCompatActivity {
     ImageButton im;
     TextView t1,t2;
+    Button back;
     public static int udone=0;
     public static ArrayList<String> assgndata=new ArrayList<String>();
-    private String jsonResponse;
     public static String[] arrayassgn;
     public static String[] arrayassgn1;
     private ListView l;
@@ -43,6 +43,13 @@ public class Assignmentc extends AppCompatActivity {
 
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lvac);
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         //image to move back to home
         im.setOnClickListener(new View.OnClickListener() {
 
@@ -69,8 +76,8 @@ public class Assignmentc extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 try {
                     ArrayList<String> ne=new ArrayList<String>();
-                    assgndata.clear();
                     JSONArray glist =response.getJSONArray("assignments");
+                    //loop to take data from json objects
                     for (int i = 0; i < glist.length(); i++) {
                         JSONObject grades =(JSONObject) glist.get(i);
                         if(udone==0) {
@@ -81,8 +88,9 @@ public class Assignmentc extends AppCompatActivity {
                         }
                     }
                     if(glist.length()>0){
-                        udone=0;
+                        udone=1;
                     }
+                    //setting adapter for the list view
                     arrayassgn=assgndata.toArray(new String[assgndata.size()]);
                     arrayassgn1=ne.toArray(new String[ne.size()]);
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Assignmentc.this,R.layout.list_view_layout,R.id.code,arrayassgn);
@@ -90,8 +98,9 @@ public class Assignmentc extends AppCompatActivity {
                 }
                 catch (JSONException e) {
                     e.printStackTrace();
+                    //error toast
                     Toast.makeText(getApplicationContext(),
-                            "Error: NOT WORKING yehi " + e.getMessage(),
+                            "Assignment fetch erroneous" + e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -105,6 +114,7 @@ public class Assignmentc extends AppCompatActivity {
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
     }
+    //the click of any listitem triggers this method
     public void clickcourse(View view) {
         Intent myIntent = new Intent(Assignmentc.this, AssignmentPreview.class);
         myIntent.putExtra("assgn",arrayassgn1);

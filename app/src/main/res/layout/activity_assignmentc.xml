@@ -9,6 +9,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.Assignmentc">
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/back"
+        android:textColor="@color/deepskyblue"
+        android:onClick="back"
+        android:text="B"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/buttonborder"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -22,6 +34,10 @@
         android:id="@+id/linearLayout">
 
     </LinearLayout>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
 
     <ScrollView
         android:layout_width="370dp"
@@ -62,14 +78,12 @@
         android:textSize="20dp"
         android:layout_gravity="right"
         android:inputType="text"
-        android:textColor="@color/white"
+        android:textColor="@color/deepskyblue"
         android:textStyle="bold|italic"
         android:id="@+id/textView"
         android:layout_alignTop="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
+        android:layout_toEndOf="@+id/textView6" />
 
     <TextView
         android:layout_height="30dp"
@@ -77,11 +91,11 @@
         android:layout_weight="1"
         android:ellipsize="end"
         android:text="Firstname"
-        android:textColor="@color/white"
         android:textStyle="bold|italic"
         android:textSize="20dp"
         android:inputType="text"
         android:layout_marginLeft="27dp"
+        android:textColor="@color/deepskyblue"
         android:layout_marginStart="27dp"
         android:id="@+id/textView6"
         android:layout_below="@+id/linearLayout"

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,7 +27,7 @@ public class GradeView extends AppCompatActivity {
     ImageButton im;
     public static int udone=0;
     public static  ArrayList<String> gradata=new ArrayList<String>();
-    private String jsonResponse;
+    TextView t1,t2;
     public static String[] arraygrade;
     private ListView l;
     private static String JSON_URL ;
@@ -38,6 +39,10 @@ public class GradeView extends AppCompatActivity {
         setContentView(R.layout.activity_grade_view);
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lvgv);
+        t1=(TextView)findViewById(R.id.textView6);
+        t2=(TextView)findViewById(R.id.textView);
+        t1.setText(LoginChoice.res[0]);
+        t2.setText(LoginChoice.res[1]);
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -47,15 +52,10 @@ public class GradeView extends AppCompatActivity {
 
             }
         });
-        //TextView txtProduct = (TextView) findViewById(R.id.product_label);
         JSON_URL= LoginChoice.ip + "/default/grades.json";
+
         sendRequest();
-
-
-
-
     }
-
     private void sendRequest() {
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
@@ -86,13 +86,10 @@ public class GradeView extends AppCompatActivity {
 
                     }
                     arraygrade=gradata.toArray(new String[gradata.size()]);
-                    Toast.makeText(GradeView.this,
-                            jsonResponse,
-                            Toast.LENGTH_SHORT).show();
                     ArrayAdapter<String> t =new ArrayAdapter<String>(GradeView.this,R.layout.list_view_layout,R.id.code,arraygrade);
                     l.setAdapter(t);
 
-
+                   //non repetative array adapter setting
                     if (clist.length()>0){
                         udone=1;
                     }

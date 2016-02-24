@@ -13,19 +13,19 @@ public class MainActivity0 extends AppCompatActivity {
         Thread timer = new Thread() {
             @Override
             public void run() {
-                try {
+                try
+                {
                     sleep(2000);
-                } catch (InterruptedException e) {
+                }
+                catch (InterruptedException e)
+                {
                     e.printStackTrace();
-                } finally {
-
-
+                }
+                finally
+                {
                         Intent myIntent1 = new Intent(
                                 MainActivity0.this,LoginChoice.class);
                         startActivity(myIntent1);
-
-
-
                 }
             }
         };

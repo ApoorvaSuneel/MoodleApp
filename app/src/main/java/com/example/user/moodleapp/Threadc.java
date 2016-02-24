@@ -26,6 +26,7 @@ import java.util.ArrayList;
 
 public class Threadc extends AppCompatActivity {
     ImageButton im,nt;
+    Button back;
     TextView t1,t2;
     public static String Tsel="Default";
     public static int udone=0;
@@ -36,7 +37,7 @@ public class Threadc extends AppCompatActivity {
     private ListView l;
     private static String JSON_URL ;
 
-
+     //creates the thread activity which takes care of the threads related to your course
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,16 @@ public class Threadc extends AppCompatActivity {
 
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lvt);
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+        //this image view button activity goes back to your profile
+        //serves as link to your profile
+        //present in all the activities of the app
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -64,11 +75,11 @@ public class Threadc extends AppCompatActivity {
 
             }
         });
-        t1=(TextView)findViewById(R.id.textView6);
-        t2=(TextView)findViewById(R.id.textView);
-        t1.setText(LoginChoice.res[0]);
-        t2.setText(LoginChoice.res[1]);
-
+         t1=(TextView)findViewById(R.id.textView6);
+         t2=(TextView)findViewById(R.id.textView);
+         t1.setText(LoginChoice.res[0]);
+         t2.setText(LoginChoice.res[1]);
+         //Cse1 is the course code pblic and static in nature
         JSON_URL= LoginChoice.ip + "courses/course.json/"+Courses.Csel+"/threads";
         sendRequest();
     }
@@ -87,21 +98,26 @@ public class Threadc extends AppCompatActivity {
                     threaddata1.clear();
                     JSONArray glist =response.getJSONArray("course_threads");
                     String name="";
-                    for (int i = 0; i < glist.length(); i++) {
+                    for (int i = 0; i < glist.length(); i++)
+                    {
                         JSONObject grades =(JSONObject) glist.get(i);
                         name = grades.getString("id")+"  "+grades.getString("title");
                         jsonResponse=name+jsonResponse;
-                        if(udone==0) {
+                        if(udone==0)
+                        {
                             threaddata1.add(grades.getString("title"));
                             threadid.add(grades.getString("id"));
                         }
                     }
-                    if(glist.length()>0){
+                    if(glist.length()>0)
+                    {
                         udone=0;//set 1 for static
                     }
+                    //toasting the thread you make
                     Toast.makeText(Threadc.this,
                             jsonResponse,
                             Toast.LENGTH_LONG).show();
+                    //setting the array adapter
                     arraythread=threaddata1.toArray(new String[threaddata1.size()]);
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Threadc.this,R.layout.list_view_layout,R.id.code,arraythread);
                     l.setAdapter(t);
@@ -109,7 +125,7 @@ public class Threadc extends AppCompatActivity {
                 catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),
-                            "Error: NOT WORKING yehi " + e.getMessage(),
+                            "Error: NOT ABLE TO POST THE THREAD" + e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -123,6 +139,7 @@ public class Threadc extends AppCompatActivity {
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
     }
+    //clicking on any thread which is a list item leads you to the page where you can comment those
     public void clickcourse(View view) {
         Button tempb=(Button)view;
         String Sel= tempb.getText().toString();
@@ -134,7 +151,6 @@ public class Threadc extends AppCompatActivity {
 
         Intent myIntent = new Intent(
                 Threadc.this, ThreadExp.class);
-       // myIntent.putExtra("id",arraygrade);
         startActivity(myIntent);
 
 

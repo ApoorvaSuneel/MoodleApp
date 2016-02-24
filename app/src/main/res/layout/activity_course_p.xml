@@ -9,6 +9,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.CourseP">
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/back"
+        android:textColor="@color/deepskyblue"
+        android:onClick="back"
+        android:text="B"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/buttonborder"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/back"
+        android:textColor="@color/deepskyblue"
+        android:onClick="back"
+        android:text="B"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/buttonborder"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"
@@ -32,14 +56,12 @@
         android:textSize="20dp"
         android:layout_gravity="right"
         android:inputType="text"
-        android:textColor="@color/white"
+        android:textColor="@color/deepskyblue"
         android:textStyle="bold|italic"
         android:id="@+id/textView"
         android:layout_alignTop="@+id/textView6"
         android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6"
-        android:layout_marginLeft="25dp"
-        android:layout_marginStart="25dp" />
+        android:layout_toEndOf="@+id/textView6" />
 
     <TextView
         android:layout_height="30dp"
@@ -47,7 +69,7 @@
         android:layout_weight="1"
         android:ellipsize="end"
         android:text="Firstname"
-        android:textColor="@color/white"
+        android:textColor="@color/deepskyblue"
         android:textStyle="bold|italic"
         android:textSize="20dp"
         android:inputType="text"
@@ -59,29 +81,8 @@
         android:layout_toEndOf="@+id/imageView" />
 
 
-    <!--
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Firstname"
-        android:id="@+id/textView7"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Lastname"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/textView7"
-        android:layout_toRightOf="@+id/imageView"
-        android:layout_alignRight="@+id/textView7"
-        android:layout_alignEnd="@+id/textView7" />
-    -->
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -89,7 +90,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Course Code"
         android:textStyle="bold|italic"
-        android:textColor="@color/white"
+        android:textColor="@color/deepskyblue"
         android:id="@+id/textView2"
         android:layout_below="@+id/imageView"
         android:layout_centerHorizontal="true" />
@@ -98,7 +99,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Assignments"
-        android:textColor="@color/darkskyblue"
+        android:textColor="@color/deepskyblue"
         android:background="@drawable/buttonborder"
         android:id="@+id/button"
         android:layout_above="@+id/button3"
@@ -108,7 +109,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Grades"
-        android:textColor="@color/darkskyblue"
+        android:textColor="@color/deepskyblue"
         android:layout_marginTop="30dp"
         android:id="@+id/button3"
         android:background="@drawable/buttonborder"
@@ -119,7 +120,7 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Threads"
-        android:textColor="@color/darkskyblue"
+        android:textColor="@color/deepskyblue"
         android:layout_marginTop="30dp"
         android:id="@+id/button4"
         android:background="@drawable/buttonborder"

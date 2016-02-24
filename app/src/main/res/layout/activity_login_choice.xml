@@ -10,6 +10,10 @@
     android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.LoginChoice">
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
     <ScrollView
         android:layout_width="370dp"
         android:layout_centerHorizontal="true"
@@ -31,7 +35,7 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="MoodleApp"
-                    android:textStyle="italic"
+                    android:textStyle="italic|bold"
                     android:textSize="40dp"
                     android:fontFamily="@string/app_name"
                     android:textColor="@color/bluewhite"
@@ -42,6 +46,10 @@
                     android:layout_centerHorizontal="true"
                     />
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
                 <EditText
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
@@ -56,6 +64,10 @@
                     android:drawableLeft="@drawable/username"
                     android:background="@color/bluewhite"/>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
                 <EditText
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
@@ -79,7 +91,7 @@
                     android:textSize="20dp"
                     android:id="@+id/button2"
                     android:layout_marginTop="60dp"
-                    android:textColor="@color/darkskyblue"
+                    android:textColor="@color/deepskyblue"
                     android:fontFamily="@string/app_name"
                     android:textStyle="bold"
                     android:background="@drawable/buttonborder"
