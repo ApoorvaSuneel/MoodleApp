@@ -27,14 +27,6 @@ public class AddComment extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_comment);
         send = (Button) findViewById(R.id.button6);
-        back=(Button)findViewById(R.id.back);
-        //back button to go to previous activity
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         desc = (EditText) findViewById(R.id.editText5);
         //listener for sending comment
         send.setOnClickListener(new View.OnClickListener() {
@@ -45,12 +37,9 @@ public class AddComment extends AppCompatActivity {
             }
         });
     }
-<<<<<<< HEAD
 
-=======
     //function sending the request in json
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
-    private void sendRequest() {
+private void sendRequest() {
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
             @Override

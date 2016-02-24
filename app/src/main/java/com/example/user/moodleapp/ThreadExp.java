@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ThreadExp extends AppCompatActivity {
     TextView title;
     ListView l;
-    Button reply,back;
+    Button reply;
     private static String jsonResponse="";
     public static ArrayList<String> comlist=new ArrayList<>();
     private static String JSON_URL;
@@ -38,13 +38,6 @@ public class ThreadExp extends AppCompatActivity {
         title=(TextView)findViewById(R.id.textView11);
         l=(ListView)findViewById(R.id.listView);
         reply=(Button)findViewById(R.id.button5);
-        back=(Button)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
         reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class NewThread extends AppCompatActivity {
     ImageButton send;
-    Button back;
+
     EditText title, desc;
     String cont, cond;
     private static String JSON_URL;
@@ -36,13 +36,6 @@ public class NewThread extends AppCompatActivity {
         send = (ImageButton) findViewById(R.id.imageButton);
         title = (EditText) findViewById(R.id.editText);
         desc = (EditText) findViewById(R.id.editText4);
-        back=(Button)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
         send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

@@ -43,13 +43,6 @@ public class Assignmentc extends AppCompatActivity {
 
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lvac);
-        back=(Button)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         //image to move back to home
         im.setOnClickListener(new View.OnClickListener() {
 

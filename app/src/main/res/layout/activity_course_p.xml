@@ -21,18 +21,7 @@
         android:background="@drawable/buttonborder"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/back"
-        android:textColor="@color/deepskyblue"
-        android:onClick="back"
-        android:text="B"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/buttonborder"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+
     <ImageButton
         android:layout_width="70dp"
         android:layout_height="70dp"

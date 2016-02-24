@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class AssignmentPreview extends AppCompatActivity {
      TextView t1,t2,t3;
-     Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +23,6 @@ public class AssignmentPreview extends AppCompatActivity {
         t1.setText(product[0]);
         t2.setText(product[1]);
         t3.setText(product[2]);
-        back=(Button)findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
 
 
     }

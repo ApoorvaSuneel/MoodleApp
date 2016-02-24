@@ -32,7 +32,7 @@ public class Gradec extends AppCompatActivity {
 
         ImageButton im;
         TextView t1,t2;
-        Button back;
+
         public static int udone = 0;
         public static ArrayList<String> gradata11 = new ArrayList<String>();
         public static ArrayList<String> gradata1 = new ArrayList<String>();//array collecting data
@@ -49,13 +49,6 @@ public class Gradec extends AppCompatActivity {
             t1.setText(LoginChoice.res[0]);
             t2.setText(LoginChoice.res[1]);
             l = (ListView) findViewById(R.id.Lvgc);
-            back=(Button)findViewById(R.id.back);
-            back.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    finish();
-                }
-            });
             //button intent to move back to profile page
             im.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

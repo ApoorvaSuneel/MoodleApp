@@ -9,22 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.Profile">
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:id="@+id/back"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
-        android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
-        android:onClick="back"
-        android:text="B"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/buttonborder"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+
     <ImageButton
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -49,11 +34,7 @@
         android:ellipsize="end"
         android:text="Firstname"
         android:gravity="center"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:textStyle="bold|italic"
         android:textSize="20dp"
         android:inputType="text"
@@ -70,11 +51,7 @@
         android:textSize="20dp"
         android:layout_gravity="center"
         android:inputType="text"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:textStyle="bold|italic"
         android:id="@+id/textView2"
         android:layout_centerVertical="true"
@@ -87,11 +64,7 @@
         android:ellipsize="end"
         android:text="NewText1"
         android:gravity="center"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:textStyle="bold|italic"
         android:textSize="20dp"
         android:inputType="text"
@@ -104,11 +77,7 @@
         android:layout_height="wrap_content"
         android:text="courses"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:id="@+id/course"
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/grades"
@@ -119,11 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:text="Grades"
         android:id="@+id/grades"
         android:layout_above="@+id/notify"
@@ -135,11 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:text=" View Notifications"
         android:id="@+id/notify"
         android:layout_alignParentBottom="true"
@@ -150,11 +111,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:text="files"
         android:id="@+id/files"
         android:layout_below="@+id/textView2"
@@ -164,11 +121,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:text="LOGOUT"
         android:id="@+id/logout"
         android:layout_alignTop="@+id/files"
@@ -179,11 +132,7 @@
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonborder"
-<<<<<<< HEAD
-        android:textColor="@color/darkskyblue"
-=======
         android:textColor="@color/deepskyblue"
->>>>>>> 2a2a7f0c6aa1068e7887a82fad8db472e3df6f6a
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:text="Reminders"
