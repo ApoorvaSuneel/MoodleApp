@@ -41,7 +41,7 @@ public class Courses extends AppCompatActivity {
     TextView t1,t2;
     public static String Csel="default";
     private static int udone=0;
-    public static ArrayList<String> mycourses=new ArrayList<>();
+    public static ArrayList<String> mycourses=new ArrayList<String>();
     public static ArrayList<String> id=new ArrayList<String>();
     public static ArrayList<String> CCodes=new ArrayList<String>();
     private String jsonResponse;
@@ -82,8 +82,6 @@ public class Courses extends AppCompatActivity {
 
                 try {
                     // Parsing json object response
-                    mycourses.clear();
-                    CCodes.clear();
                     JSONArray clist = response.getJSONArray("courses");
                     for (int i = 0; i < clist.length(); i++) {
 
@@ -101,8 +99,9 @@ public class Courses extends AppCompatActivity {
                     String[] array1 = mycourses.toArray(new String[mycourses.size()]);
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Courses.this,R.layout.list_view_layout,R.id.code,array1);
                     l.setAdapter(t);
+                    //udone set to 1 for non repetative json results
                     if (clist.length()>0){
-                        udone=0;//for static put 1
+                        udone=1;//for static put 1
                     }
                 }
                 catch (JSONException e) {
@@ -126,7 +125,7 @@ public class Courses extends AppCompatActivity {
 
     }
 
-
+    ///method for listitem click
     public void clickcourse(View view) {
         Intent myIntent = new Intent(Courses.this, CourseP.class);
         Button tempb=(Button)view;

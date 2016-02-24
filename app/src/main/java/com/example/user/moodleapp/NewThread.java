@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -23,6 +24,7 @@ import org.json.JSONObject;
 
 public class NewThread extends AppCompatActivity {
     ImageButton send;
+    Button back;
     EditText title, desc;
     String cont, cond;
     private static String JSON_URL;
@@ -32,12 +34,15 @@ public class NewThread extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_thread);
         send = (ImageButton) findViewById(R.id.imageButton);
-
         title = (EditText) findViewById(R.id.editText);
         desc = (EditText) findViewById(R.id.editText4);
-        Toast.makeText(getApplicationContext(),
-                "yahoo",
-                Toast.LENGTH_SHORT).show();
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         send.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -46,14 +51,15 @@ public class NewThread extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),
                         cont+" "+cond,
                         Toast.LENGTH_SHORT).show();
-
+                //definition fo resending the request
                JSON_URL = LoginChoice.ip + "threads/new.json?title=" + cont + "&description=" + cond + "&course_code=" + Courses.Csel;
                 sendRequest();
-            }
+                 }
         });
-    }
-
-   private void sendRequest() {
+        }
+      //method to handle requests
+    private void sendRequest() {
+        //response on thread creation given by server which is toasted
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
 

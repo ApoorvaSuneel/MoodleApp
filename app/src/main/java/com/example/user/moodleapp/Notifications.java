@@ -56,14 +56,12 @@ public class Notifications extends AppCompatActivity {
                 Intent myIntent = new Intent(
                         Notifications.this, Profile.class);
                 startActivity(myIntent);
-
             }
         });
         JSON_URL= LoginChoice.ip + "/default/notifications.json";
         sendRequest();
-
     }
-
+//method handling requests
     private void sendRequest() {
 
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
@@ -71,7 +69,6 @@ public class Notifications extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-
 
                 try {
                     // Parsing json object response
@@ -98,10 +95,6 @@ public class Notifications extends AppCompatActivity {
                     if (clist.length()>0){
                         udone=1;
                     }
-
-                   /* CustomList cl = new CustomList(Courses.this,array1);//, pj.descriptions,pj.credits,pj.ids,pj.ltps);
-                    l.setAdapter(cl);*/
-
                 }
                 catch (JSONException e) {
                     e.printStackTrace();

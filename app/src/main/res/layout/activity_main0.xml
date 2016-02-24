@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="MoodleApp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
         android:textSize="40dp"
         android:fontFamily="@string/app_name"
         android:textColor="@color/bluewhite"

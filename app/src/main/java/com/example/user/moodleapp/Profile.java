@@ -19,10 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Profile extends AppCompatActivity {
-    Button b1,b2,b3,b4,b5;
+    Button b1,b2,b3,b4,b5,b6;
     TextView t1,t2,t3,t4;
     String JSON_URL="";
     @Override
+    //main profile of themoodleapp containing links to various other apps
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
@@ -31,10 +32,10 @@ public class Profile extends AppCompatActivity {
         b4=(Button)findViewById(R.id.notify);
         b3=(Button)findViewById(R.id.files);
         b5=(Button)findViewById(R.id.logout);
-        t1=(TextView)findViewById(R.id.textView7);
-        t2=(TextView)findViewById(R.id.textView8);
-        t3=(TextView)findViewById(R.id.username);
-        t4=(TextView)findViewById(R.id.entry);
+        b6=(Button)findViewById(R.id.button7);
+        t1=(TextView)findViewById(R.id.textView6);
+        t3=(TextView)findViewById(R.id.textView1);
+        t4=(TextView)findViewById(R.id.textView2);
         b1.setOnClickListener(new View.OnClickListener()
         {
 
@@ -62,16 +63,22 @@ public class Profile extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        //this button click leads to the file explorer of the phone to view your files
         b3.setOnClickListener(new View.OnClickListener()
         {
            public void onClick(View v)
            {
                Toast.makeText(getApplicationContext(),
-                       "Error: WORKING files ",
+                       "View Your Files",
                        Toast.LENGTH_SHORT).show();
+
+               Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.asus.filemanager");
+               startActivity(launchIntent);
+
            }
 
         });
+        //button present only in the profile for you to logout of the account
         b5.setOnClickListener(new View.OnClickListener()
         {
             public void onClick(View v)
@@ -81,17 +88,29 @@ public class Profile extends AppCompatActivity {
             }
 
         });
+        //leads to the calender of your phone to mark your deadlines and important dates
+        b6.setOnClickListener(new View.OnClickListener()
+        {
+            public void onClick(View v)
+            {
+                Toast.makeText(getApplicationContext(),
+                        "Set a Reminder for yourself",
+                        Toast.LENGTH_SHORT).show();
+                Intent launchIntent1 = getPackageManager().getLaunchIntentForPackage("com.google.android.calendar");
+                startActivity(launchIntent1);
+            }
+
+        });
         //intent to get data from previous application
         Intent i=getIntent();
         String[] s=i.getStringArrayExtra("data");
-        t1.setText(s[0]);
-        t2.setText(s[1]);
+        t1.setText(s[0]+" "+s[1]);
         t3.setText(s[2]);
         t4.setText(s[3]);
         }
-//executes for logging out of the profile
-    private void registerUser() {
-        JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
+        //executes for logging out of the profile
+        private void registerUser() {
+            JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

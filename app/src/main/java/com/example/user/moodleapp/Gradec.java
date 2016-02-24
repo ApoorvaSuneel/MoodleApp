@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,25 +29,33 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Gradec extends AppCompatActivity {
+
         ImageButton im;
         TextView t1,t2;
+        Button back;
         public static int udone = 0;
+        public static ArrayList<String> gradata11 = new ArrayList<String>();
         public static ArrayList<String> gradata1 = new ArrayList<String>();//array collecting data
-        private String jsonResponse;                                  //required to toast data
-        public static String[] arraygrade1;                            //adapter argument
         private ListView l;
         private static String JSON_URL;
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_gradec);
-            Toast.makeText(Gradec.this, " Course Profile of : "+Courses.Csel, Toast.LENGTH_SHORT).show();
+            Toast.makeText(Gradec.this, " Grades of  : "+Courses.Csel, Toast.LENGTH_SHORT).show();
             im = (ImageButton) findViewById(R.id.imageView);
             t1=(TextView)findViewById(R.id.textView6);
             t2=(TextView)findViewById(R.id.textView);
             t1.setText(LoginChoice.res[0]);
             t2.setText(LoginChoice.res[1]);
             l = (ListView) findViewById(R.id.Lvgc);
+            back=(Button)findViewById(R.id.back);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
             //button intent to move back to profile page
             im.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -63,18 +72,28 @@ public class Gradec extends AppCompatActivity {
                 @Override
                 public void onResponse(JSONObject response) {
                     try {
-                        JSONArray glist = response.getJSONArray("grades");
-                        String name = "";
-                        for (int i = 0; i < glist.length(); i++) {
-                            JSONObject grades = (JSONObject) glist.get(i);
-                            gradata1.add("NAME   :" + "  " + grades.getString("name"));
-                            gradata1.add("YOUR SCORE   :" + "  " + grades.getString("score"));
-                            gradata1.add("TOTAL   :" + "  " + grades.getString("out_of"));
-                            gradata1.add("WEIGHTAGE   :" + "  " + grades.getString("weightage"));
+                        JSONArray glist1 = response.getJSONArray("grades");
+                        for (int i = 0; i < glist1.length(); i++)
+                        {
+                            JSONObject grades1 = (JSONObject) glist1.get(i);
+                            if (udone==0)
+                            {
+                                gradata11.add("NAME   : " + "  " + grades1.getString("name"));
+                                gradata1.add("YOUR SCORE   : " + "  " + grades1.getString("score"));
+                                gradata1.add("TOTAL   : " + "  " + grades1.getString("out_of"));
+                                gradata1.add("WEIGHTAGE   : " + "  " + grades1.getString("weightage"));
+
+                            }
+
                         }
-                        arraygrade1 = gradata1.toArray(new String[gradata1.size()]);
-                        ArrayAdapter<String> t = new ArrayAdapter<String>(Gradec.this, R.layout.list_view_layout, R.id.code, arraygrade1);
-                        l.setAdapter(t);  //set the adapter
+                        if(glist1.length()>0)
+                        {
+                            udone=1;
+                        }
+
+                       String[] arraygrade1 = gradata11.toArray(new String[gradata11.size()]);
+                        ArrayAdapter<String> t1 = new ArrayAdapter<String>(Gradec.this, R.layout.list_view_layout, R.id.code, arraygrade1);
+                        l.setAdapter(t1);  //set the adapter
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Toast.makeText(getApplicationContext(),
@@ -91,4 +110,8 @@ public class Gradec extends AppCompatActivity {
             RequestP.add(jreq);
         }
 
-    }
+
+
+
+
+}

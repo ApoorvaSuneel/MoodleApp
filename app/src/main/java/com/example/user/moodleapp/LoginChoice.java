@@ -33,7 +33,7 @@ public class LoginChoice extends AppCompatActivity {
     public static String ip="http://10.192.40.165:8000/";     //public static ip for all classes
     private static String JSON_URL;
     public static ArrayList<String> logchoice=new ArrayList<String>();
-    public static String[] res;
+    public static String[] res = new String[5]  ;
     private EditText username, password;
     public static String usernamestr, passwordstr,jsonResponse;
     @Override

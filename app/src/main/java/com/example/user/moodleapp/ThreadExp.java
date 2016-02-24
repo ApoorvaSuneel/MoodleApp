@@ -26,17 +26,25 @@ import java.util.ArrayList;
 public class ThreadExp extends AppCompatActivity {
     TextView title;
     ListView l;
-    Button reply;
+    Button reply,back;
     private static String jsonResponse="";
     public static ArrayList<String> comlist=new ArrayList<>();
     private static String JSON_URL;
     @Override
+    //activity to expanding the thread view
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_exp);
         title=(TextView)findViewById(R.id.textView11);
         l=(ListView)findViewById(R.id.listView);
         reply=(Button)findViewById(R.id.button5);
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,6 +66,7 @@ public class ThreadExp extends AppCompatActivity {
                 try {
                     comlist.clear();
                     // Parsing json object response
+                    //json response for commenting on the expanded thread
                     JSONObject tdesc=response.getJSONObject("thread");
                     title.setText(tdesc.getString("description"));
                     JSONArray clist = response.getJSONArray("comments");

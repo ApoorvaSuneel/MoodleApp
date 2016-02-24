@@ -12,6 +12,7 @@ import android.widget.TextView;
 public class CourseP extends AppCompatActivity {
     ImageButton im;
     TextView t1,t2;
+    Button back;
     Button asnb,threadb,gradeb;
     TextView codec;
     @Override
@@ -22,6 +23,13 @@ public class CourseP extends AppCompatActivity {
         im=(ImageButton)findViewById(R.id.imageView);
         t1=(TextView)findViewById(R.id.textView6);
         t2=(TextView)findViewById(R.id.textView);
+        back=(Button)findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -48,7 +56,7 @@ public class CourseP extends AppCompatActivity {
         });
 
 
-
+        //following activity shows the threads in the course
         threadb=(Button) findViewById(R.id.button4);
         threadb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -58,7 +66,7 @@ public class CourseP extends AppCompatActivity {
             }
         });
 
-
+        //to show the grades in the course
         gradeb=(Button) findViewById(R.id.button3);
         gradeb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
