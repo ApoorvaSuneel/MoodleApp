@@ -9,6 +9,7 @@ public class MainActivity0 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main0);
+        //splash page at the start of the application
         Thread timer = new Thread() {
             @Override
             public void run() {

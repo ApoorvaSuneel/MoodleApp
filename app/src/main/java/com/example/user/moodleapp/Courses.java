@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -37,6 +38,7 @@ import java.util.List;
 
 public class Courses extends AppCompatActivity {
     ImageButton im;
+    TextView t1,t2;
     public static String Csel="default";
     private static int udone=0;
     public static ArrayList<String> mycourses=new ArrayList<>();
@@ -52,6 +54,8 @@ public class Courses extends AppCompatActivity {
         setContentView(R.layout.activity_courses);
         im=(ImageButton)findViewById(R.id.imageView);
         l=(ListView)findViewById(R.id.lv);
+        t1=(TextView)findViewById(R.id.textView6);
+        t2=(TextView)findViewById(R.id.textView);
         im.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -62,6 +66,8 @@ public class Courses extends AppCompatActivity {
             }
         });
         JSON_URL= LoginChoice.ip + "courses/list.json";
+        t1.setText(LoginChoice.res[0]);
+        t2.setText(LoginChoice.res[1]);
         sendRequest();
     }
 
@@ -96,14 +102,8 @@ public class Courses extends AppCompatActivity {
 
                     }
                     String[] array1 = mycourses.toArray(new String[mycourses.size()]);
-                    Toast.makeText(Courses.this,
-                            jsonResponse,
-                            Toast.LENGTH_LONG).show();
                     ArrayAdapter<String> t =new ArrayAdapter<String>(Courses.this,R.layout.list_view_layout,R.id.code,array1);
                     l.setAdapter(t);
-
-                   /* CustomList cl = new CustomList(Courses.this,array1);//, pj.descriptions,pj.credits,pj.ids,pj.ltps);
-                    l.setAdapter(cl);*/
                     if (clist.length()>0){
                         udone=0;//for static put 1
                     }

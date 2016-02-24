@@ -30,46 +30,29 @@ import java.util.ArrayList;
 public class LoginChoice extends AppCompatActivity {
 
     Button b2;
-
-    public static String ip="http://10.192.40.165:8000/";
-
-
-    //public static String user,pass;
+    public static String ip="http://10.192.40.165:8000/";     //public static ip for all classes
     private static String JSON_URL;
     public static ArrayList<String> logchoice=new ArrayList<String>();
     public static String[] res;
     private EditText username, password;
     public static String usernamestr, passwordstr,jsonResponse;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // public static String user,pass;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_choice);
         b2 = (Button) findViewById(R.id.button2);
         username = (EditText) findViewById(R.id.editText3);
         password = (EditText) findViewById(R.id.editText);
-
         b2.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 usernamestr = username.getText().toString();
                 passwordstr = password.getText().toString();
                 JSON_URL = ip + "default/login.json?userid=" + usernamestr + "&password=" + passwordstr;
-                registerUser();
+                registerUser();//method handling the request sending part
 
             }
-        });
-
-
-
-    }
+        });}
 
     private void registerUser() {
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
@@ -77,22 +60,19 @@ public class LoginChoice extends AppCompatActivity {
 
             @Override
             public void onResponse(JSONObject response) {
-
-
                 try {
 
                     JSONObject u=response.getJSONObject("user");
                     String s=response.getString("success");
-
                     String name = "";
-
-                        name = u.getString("first_name") + "  " + u.getString("last_name");
-                        jsonResponse = "Hello "+ name ;
-                        logchoice.add(u.getString("first_name"));
-                        logchoice.add(u.getString("last_name"));
-                        logchoice.add(u.getString("entry_no"));
-                        logchoice.add(u.getString("email"));
-                        logchoice.add(s);
+                    name = u.getString("first_name") + "  " + u.getString("last_name");
+                    jsonResponse = "Hello "+ name ;
+                    //arraylist to get the data from one activity to another and also to set the adapter class
+                    logchoice.add(u.getString("first_name"));
+                    logchoice.add(u.getString("last_name"));
+                    logchoice.add(u.getString("entry_no"));
+                    logchoice.add(u.getString("email"));
+                    logchoice.add(s);
                     res = logchoice.toArray(new String[logchoice.size()]);
                      if (s.equals("true"))
                      {
@@ -100,17 +80,12 @@ public class LoginChoice extends AppCompatActivity {
                          Toast.makeText(LoginChoice.this,
                                  jsonResponse,
                                  Toast.LENGTH_LONG).show();
+                         //intent for another class
                          Intent myIntent = new Intent(
                                  LoginChoice.this, Profile.class);
                          myIntent.putExtra("data",res);
                          startActivity(myIntent);
-
-
                      }
-
-
-
-
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(),
@@ -125,6 +100,7 @@ public class LoginChoice extends AppCompatActivity {
 
             }
         });
+        //request queue
         RequestQueue RequestP = Volley.newRequestQueue(this);
         RequestP.add(jreq);
 
