@@ -10,10 +10,6 @@
     android:background="@drawable/probg"
     tools:context="com.example.user.moodleapp.LoginChoice">
 
-
-
-
-
     <ScrollView
         android:layout_width="370dp"
         android:layout_centerHorizontal="true"
@@ -46,23 +42,6 @@
                     android:layout_centerHorizontal="true"
                     />
 
-              <!-- <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="UserName"
-                    android:layout_marginTop="40dp"
-                    android:id="@+id/textView4"
-                    android:layout_above="@+id/editText3"
-                    android:layout_alignLeft="@+id/textView5"
-                    android:layout_alignStart="@+id/textView5" />
-               -->
-
-               <!-- <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/user"/>
--->
                 <EditText
                     android:layout_width="225dp"
                     android:layout_height="wrap_content"
@@ -76,17 +55,6 @@
                     android:hint="Username"
                     android:drawableLeft="@drawable/username"
                     android:background="@color/bluewhite"/>
-
-              <!--  <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="PassWord"
-                    android:id="@+id/textView5"
-                    android:layout_centerVertical="true"
-                    android:layout_centerHorizontal="true" />
-
-               -->
 
                 <EditText
                     android:layout_width="225dp"

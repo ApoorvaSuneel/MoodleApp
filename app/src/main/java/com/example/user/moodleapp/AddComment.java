@@ -41,10 +41,10 @@ public class AddComment extends AppCompatActivity {
             }
         });
     }
+
     private void sendRequest() {
         JsonObjectRequest jreq = new JsonObjectRequest(Request.Method.GET,
                 JSON_URL, null, new Response.Listener<JSONObject>() {
-
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(),

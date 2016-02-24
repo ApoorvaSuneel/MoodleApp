@@ -78,6 +78,9 @@ public class Courses extends AppCompatActivity {
                     // Parsing json object response
                     mycourses.clear();
                     CCodes.clear();
+
+
+
                     JSONArray clist = response.getJSONArray("courses");
                     for (int i = 0; i < clist.length(); i++) {
 
